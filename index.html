@@ -1,39 +1,404 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <title>Adi</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aditya Gupta | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="container">
-      <img
-        class="profile-pic"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1a-nHQZMmyZdXKypbFqUqXbxRGvmORRRRLQ&s" width="120"
-        alt="Aditya's profile picture"
-      />
-      <h1>Aditya</h1>
-      <p>
-        Hi, I’m Aditya! I’m learning web development and I enjoy building small
-        projects with HTML, CSS, and JavaScript. Here are a few places you can
-        find me and my work.
-      </p>
-      <div class="links">
-        <a class="link-button" href="https://www.instagram.com/a7di___/" target="_blank">
-          Instagram
-        </a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <a class="link-button" href="https://github.com/aditya48-q" target="_blank">
-          GitHub
-        </a>
+    <header class="site-header">
+      <div class="shell nav-shell">
+        <nav class="navbar" aria-label="Primary">
+          <a class="brand" href="#hero" aria-label="Go to top">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span class="brand-text">Aditya Gupta</span>
+          </a>
 
-        <a class="link-button" href="https://aditya48-q.github.io/Codex-project/" target="_blank" >
-          Personal Website
-        </a>
-        <a class="link-button" href="https://github.com/aditya48-q/Codex-project" target="_blank">
-          Latest Project
-        </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+
+          <div id="primary-menu" class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="nav-cta">
+            <a class="btn btn-ghost" href="#projects">View Projects</a>
+            <a class="btn btn-primary" href="#contact">Contact Me</a>
+          </div>
+        </nav>
       </div>
-    </div>
+    </header>
+
+    <main id="main">
+      <section id="hero" class="section hero">
+        <div class="shell hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy" data-aos="fade-up" data-aos-delay="0">
+              <p class="eyebrow">Computer Science Student</p>
+              <h1 class="headline">
+                Hi, I'm <span class="text-gradient">Aditya Gupta</span>
+                <span class="headline-sub">Web Developer | AI-assisted builder</span>
+              </h1>
+              <p class="lead">
+                Building modern web experiences and AI-powered solutions with crisp UI,
+                scalable code, and thoughtful interaction design.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#projects">View Projects</a>
+                <a class="btn btn-ghost" href="#contact">Contact Me</a>
+              </div>
+
+              <div class="hero-social">
+                <a class="chip" href="https://github.com/aditya48-q" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="chip" href="https://www.linkedin.com/in/aditya-gupta-89a359368/" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+                <a class="chip" href="https://aditya48-q.github.io/Codex-project/" target="_blank" rel="noreferrer">
+                  Live Site
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="150">
+              <div class="profile-card">
+                <div class="profile">
+                  <img
+                    class="profile-pic"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1a-nHQZMmyZdXKypbFqUqXbxRGvmORRRRLQ&s"
+                    width="120"
+                    height="120"
+                    alt="Aditya profile picture"
+                  />
+                  <div class="profile-meta">
+                    <p class="profile-name">Aditya Gupta</p>
+                    <p class="profile-role">Web Development • AI Tools</p>
+                  </div>
+                </div>
+
+                <div class="floating-metrics">
+                  <div class="metric">
+                    <p class="metric-k">ProtoLearn</p>
+                    <p class="metric-l">AI-assisted learning prototype</p>
+                  </div>
+                  <div class="metric">
+                    <p class="metric-k">3+</p>
+                    <p class="metric-l">Projects shipped</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="float-card float-card-one">
+                <p class="float-title">Glacier UI</p>
+                <p class="float-text">Glassmorphism • Soft glow • Modern motion</p>
+              </div>
+              <div class="float-card float-card-two">
+                <p class="float-title">Focus</p>
+                <p class="float-text">Web Dev • AI-assisted dev • Problem solving</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="shell">
+          <div class="section-head" data-aos="fade-up" data-aos-delay="0">
+            <h2>About</h2>
+            <p>
+              Computer Science student with a focus on web development and AI-assisted
+              workflows, driven by clean design, scalable code, and high-impact results.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="about-copy" data-aos="fade-right" data-aos-delay="80">
+              <h3>What I bring</h3>
+              <p>
+                I design and build responsive experiences, convert ideas into polished
+                interfaces, and use AI tools to accelerate iterations without sacrificing
+                quality.
+              </p>
+              <ul class="bullet">
+                <li>Web Development and modern UI delivery</li>
+                <li>AI tools and prompt engineering for speed</li>
+                <li>Problem solving with strong OOP foundations</li>
+              </ul>
+            </div>
+
+            <div class="about-highlight" data-aos="fade-left" data-aos-delay="140">
+              <h3>Focus Areas</h3>
+              <div class="pill-row">
+                <span class="pill">Web Development</span>
+                <span class="pill">AI-assisted Development</span>
+                <span class="pill">Frontend Architecture</span>
+                <span class="pill">Problem Solving</span>
+              </div>
+              <div class="highlight-card">
+                <p class="highlight-title">Current Mission</p>
+                <p class="muted">
+                  Build a premium portfolio of interactive products that demonstrate
+                  strong UI, clean code, and measurable impact.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="shell">
+          <div class="section-head" data-aos="fade-up" data-aos-delay="0">
+            <h2>Projects</h2>
+            <p>Flagship builds presented as a horizontal, swipeable gallery.</p>
+          </div>
+
+          <div class="projects-wrap" data-aos="fade-up" data-aos-delay="100">
+            <div class="projects-track">
+              <article class="project-card">
+                <div class="project-top">
+                  <p class="project-label">Featured</p>
+                  <h3>ProtoLearn</h3>
+                  <p class="muted">
+                    AI-assisted learning prototype focused on faster study loops and
+                    structured knowledge capture.
+                  </p>
+                </div>
+                <div class="stack">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">AI Tools</span>
+                </div>
+                <div class="project-actions">
+                  <a class="btn btn-primary" href="https://aditya48-q.github.io/ProtoLearn/" target="_blank" rel="noreferrer">
+                    Live Demo
+                  </a>
+                  <a class="btn btn-ghost" href="https://github.com/aditya48-q/ProtoLearn" target="_blank" rel="noreferrer">
+                    GitHub
+                  </a>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-top">
+                  <p class="project-label">Live</p>
+                  <h3>Codex Project</h3>
+                  <p class="muted">
+                    Glacier-inspired portfolio concept with interactive layouts and
+                    clean storytelling.
+                  </p>
+                </div>
+                <div class="stack">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="btn btn-primary"
+                    href="https://aditya48-q.github.io/Codex-project/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                  <a
+                    class="btn btn-ghost"
+                    href="https://github.com/aditya48-q/Codex-project"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-top">
+                  <p class="project-label">Concept</p>
+                  <h3>Landing Page Project</h3>
+                  <p class="muted">
+                    High-conversion landing page with bold hero layout, clean grid, and
+                    responsive motion-first sections.
+                  </p>
+                </div>
+                <div class="stack">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">UX</span>
+                </div>
+                <div class="project-actions">
+                  <a class="btn btn-primary" href="https://aditya48-q.github.io/Portfolio/" target="_blank" rel="noreferrer">Live Demo</a>
+                  <a class="btn btn-ghost" href="https://github.com/aditya48-q" target="_blank" rel="noreferrer">
+                    GitHub
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="shell">
+          <div class="section-head" data-aos="fade-up" data-aos-delay="0">
+            <h2>Skills</h2>
+            <p>Grouped by strength with animated bars and premium UI styling.</p>
+          </div>
+
+          <div class="skills-grid" data-aos="fade-up" data-aos-delay="80">
+            <div class="skill-card">
+              <h3>Programming</h3>
+              <div class="skill-bar">
+                <span>C</span>
+                <div class="bar"><span style="--level: 70%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <span>C++</span>
+                <div class="bar"><span style="--level: 75%"></span></div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Web</h3>
+              <div class="skill-bar">
+                <span>HTML</span>
+                <div class="bar"><span style="--level: 85%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <span>CSS</span>
+                <div class="bar"><span style="--level: 80%"></span></div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Concepts</h3>
+              <div class="skill-bar">
+                <span>OOPs</span>
+                <div class="bar"><span style="--level: 78%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <span>Problem Solving</span>
+                <div class="bar"><span style="--level: 82%"></span></div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Tools</h3>
+              <div class="skill-bar">
+                <span>AI Tools</span>
+                <div class="bar"><span style="--level: 72%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <span>Prompt Engineering</span>
+                <div class="bar"><span style="--level: 68%"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="shell">
+          <div class="section-head" data-aos="fade-up" data-aos-delay="0">
+            <h2>Contact</h2>
+            <p>Let's build something great. Reach out and let's connect.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card" data-aos="fade-right" data-aos-delay="80">
+              <h3>Reach me</h3>
+              <p class="muted">Email</p>
+              <p class="contact-highlight">adg88175@gmail.com</p>
+              <div class="contact-actions">
+                <a class="btn btn-primary" href="https://github.com/aditya48-q" target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/aditya-gupta-89a359368/" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+              </div>
+              <div class="contact-links">
+                <a href="https://aditya48-q.github.io/Portfolio/" target="_blank" rel="noreferrer">Portfolio</a>
+                <a href="https://www.instagram.com/a7di___/" target="_blank" rel="noreferrer">Instagram</a>
+              </div>
+            </div>
+
+            <form class="contact-form" data-aos="fade-left" data-aos-delay="140">
+              <h3>Send a message</h3>
+              <label>
+                <span>Name</span>
+                <input type="text" placeholder="Your name" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" placeholder="you@email.com" />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea rows="4" placeholder="Tell me about your idea"></textarea>
+              </label>
+              <button class="btn btn-primary" type="button">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="shell">
+          <div class="footer-inner">
+            <p class="muted">© 2026 Aditya Gupta. Built with HTML, CSS, and passion.</p>
+            <a class="to-top" href="#hero">Back to top</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          document.body.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      AOS.init({
+        duration: 900,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 120,
+      });
+    </script>
   </body>
 </html>
