@@ -50,8 +50,12 @@ function contactRateLimit(req, res, next) {
 
 /* ── Nodemailer transporter ─────────────────────────────────── */
 function createTransporter() {
+  const host = process.env.SMTP_HOST;
+  if (!host) {
+    throw new Error("SMTP_HOST environment variable is required. Copy .env.example to .env and configure it.");
+  }
   return nodemailer.createTransport({
-    host:   process.env.SMTP_HOST   || "smtp.gmail.com",
+    host,
     port:   parseInt(process.env.SMTP_PORT || "587", 10),
     secure: process.env.SMTP_SECURE === "true",
     auth: {

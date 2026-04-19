@@ -156,8 +156,21 @@
   const cards = document.querySelectorAll(
     ".project-card, .skill-card, .about-copy, .about-highlight, .contact-card, .contact-form"
   );
+
+  /* Throttle helper — limit to one call per animation frame */
+  function rafThrottle(fn) {
+    let rafId = null;
+    return function (...args) {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        fn.apply(this, args);
+        rafId = null;
+      });
+    };
+  }
+
   cards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
+    card.addEventListener("mousemove", rafThrottle((e) => {
       const rect  = card.getBoundingClientRect();
       const cx    = rect.left + rect.width / 2;
       const cy    = rect.top  + rect.height / 2;
@@ -166,7 +179,7 @@
       const rotY  =  dx * 10;
       const rotX  = -dy * 10;
       card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(6px)`;
-    });
+    }));
     card.addEventListener("mouseleave", () => {
       card.style.transform = "";
     });
