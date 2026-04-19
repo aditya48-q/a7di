@@ -261,10 +261,13 @@ a {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-shell {
   position: relative;
+  z-index: 1;
 }
 
 .hero-grid {
@@ -288,6 +291,12 @@ a {
   line-height: 1.06;
   letter-spacing: -0.04em;
   font-family: "Sora", system-ui, sans-serif;
+  text-shadow:
+    1px 1px 0   rgba(0, 180, 216, 0.55),
+    2px 2px 0   rgba(0, 119, 182, 0.45),
+    3px 3px 0   rgba(0, 77,  140, 0.35),
+    4px 4px 6px rgba(0, 50,  100, 0.25),
+    0   0   20px rgba(0, 180, 216, 0.18);
 }
 
 .headline-sub {
@@ -341,6 +350,8 @@ a {
   position: relative;
   display: grid;
   gap: 16px;
+  transition: transform 0.12s ease-out;
+  will-change: transform;
 }
 
 .profile-card {
@@ -785,7 +796,6 @@ a {
     grid-auto-columns: minmax(240px, 78vw);
   }
 }
-}
 
 .pill-row {
   display: flex;
@@ -1007,4 +1017,44 @@ a {
   .to-top {
     transition: none;
   }
+
+  #hero-canvas {
+    display: none;
+  }
+
+  .tilt-card {
+    transition: none;
+  }
+}
+
+/* ── Three.js hero canvas ─────────────────────────────────────── */
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Card tilt ───────────────────────────────────────────────── */
+.tilt-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Hero copy parallax ──────────────────────────────────────── */
+.hero-copy {
+  transition: transform 0.12s ease-out;
+  will-change: transform;
 }
