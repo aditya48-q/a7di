@@ -17,9 +17,18 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Three.js (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
   </head>
 
   <body>
+    <!-- Three.js full-page canvas (hero background) -->
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
@@ -346,21 +355,21 @@
               </div>
             </div>
 
-            <form class="contact-form" data-aos="fade-left" data-aos-delay="140">
+            <form id="contact-form" class="contact-form" data-aos="fade-left" data-aos-delay="140" novalidate>
               <h3>Send a message</h3>
               <label>
                 <span>Name</span>
-                <input type="text" placeholder="Your name" />
+                <input id="cf-name" type="text" placeholder="Your name" autocomplete="name" required />
               </label>
               <label>
                 <span>Email</span>
-                <input type="email" placeholder="you@email.com" />
+                <input id="cf-email" type="email" placeholder="you@email.com" autocomplete="email" required />
               </label>
               <label>
                 <span>Message</span>
-                <textarea rows="4" placeholder="Tell me about your idea"></textarea>
+                <textarea id="cf-message" rows="4" placeholder="Tell me about your idea" required></textarea>
               </label>
-              <button class="btn btn-primary" type="button">Send Message</button>
+              <button id="contact-submit" class="btn btn-primary" type="submit">Send Message</button>
             </form>
           </div>
         </div>
@@ -378,6 +387,7 @@
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+      /* Nav toggle */
       const navToggle = document.querySelector(".nav-toggle");
       const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -400,5 +410,6 @@
         offset: 120,
       });
     </script>
+    <script src="main.js" defer></script>
   </body>
 </html>
