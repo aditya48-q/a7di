@@ -23,6 +23,31 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));   /* serve index.html, style.css, main.js */
 
+/* ── Simple in-memory rate limiter for /api/contact ─────────── */
+const RATE_WINDOW_MS  = 15 * 60 * 1000; /* 15 minutes */
+const RATE_MAX        = 5;               /* max 5 requests per window per IP */
+const rateMap         = new Map();       /* ip → { count, resetAt } */
+
+function contactRateLimit(req, res, next) {
+  const ip  = (req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim();
+  const now = Date.now();
+  const rec = rateMap.get(ip);
+
+  if (!rec || now > rec.resetAt) {
+    rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return next();
+  }
+
+  if (rec.count >= RATE_MAX) {
+    const retryAfter = Math.ceil((rec.resetAt - now) / 1000);
+    res.set("Retry-After", String(retryAfter));
+    return res.status(429).json({ error: "Too many requests. Please try again later." });
+  }
+
+  rec.count += 1;
+  return next();
+}
+
 /* ── Nodemailer transporter ─────────────────────────────────── */
 function createTransporter() {
   return nodemailer.createTransport({
@@ -40,13 +65,13 @@ function createTransporter() {
 function validateContactInput(name, email, message) {
   const errors = [];
   if (!name    || typeof name    !== "string" || name.trim().length    < 2)  errors.push("Name must be at least 2 characters.");
-  if (!email   || typeof email   !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) errors.push("A valid email address is required.");
+  if (!email   || typeof email   !== "string" || email.trim().length > 254 || !email.trim().includes("@") || email.trim().indexOf("@") === 0 || email.trim().endsWith("@")) errors.push("A valid email address is required.");
   if (!message || typeof message !== "string" || message.trim().length < 10) errors.push("Message must be at least 10 characters.");
   return errors;
 }
 
 /* ── POST /api/contact ──────────────────────────────────────── */
-app.post("/api/contact", async (req, res) => {
+app.post("/api/contact", contactRateLimit, async (req, res) => {
   const { name, email, message } = req.body || {};
 
   /* Validate */
