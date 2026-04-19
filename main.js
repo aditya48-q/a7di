@@ -221,11 +221,22 @@
     }, 4000);
   }
 
+  function isValidEmail(email) {
+    if (!email || typeof email !== "string") return false;
+    const trimmed = email.trim();
+    if (trimmed.length > 254) return false;
+    const atIdx = trimmed.indexOf("@");
+    if (atIdx <= 0) return false;
+    if (atIdx === trimmed.length - 1) return false;
+    const domain = trimmed.slice(atIdx + 1);
+    return domain.includes(".") && !domain.endsWith(".");
+  }
+
   /* Simple client-side validation */
   function validate(name, email, message) {
-    if (!name.trim())                          return "Please enter your name.";
-    if (!email.trim() || !email.includes("@")) return "Please enter a valid email.";
-    if (!message.trim())                       return "Please write a message.";
+    if (!name.trim())           return "Please enter your name.";
+    if (!isValidEmail(email))   return "Please enter a valid email.";
+    if (!message.trim())        return "Please write a message.";
     return null;
   }
 
@@ -245,7 +256,7 @@
     const err = validate(name, email, message);
     if (err) {
       if (!name.trim())    nameEl.classList.add("input-error");
-      if (!email.trim() || !email.includes("@")) emailEl.classList.add("input-error");
+      if (!isValidEmail(email)) emailEl.classList.add("input-error");
       if (!message.trim()) messageEl.classList.add("input-error");
       showToast(err, "error");
       return;

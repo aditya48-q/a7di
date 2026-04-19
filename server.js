@@ -61,11 +61,22 @@ function createTransporter() {
   });
 }
 
-/* ── Validation helper ─────────────────────────────────────── */
+/* ── Validation helpers ────────────────────────────────────── */
+function isValidEmail(email) {
+  if (!email || typeof email !== "string") return false;
+  const trimmed = email.trim();
+  if (trimmed.length > 254) return false;
+  const atIdx = trimmed.indexOf("@");
+  if (atIdx <= 0) return false;                     /* must have chars before @ */
+  if (atIdx === trimmed.length - 1) return false;   /* must have chars after @ */
+  const domain = trimmed.slice(atIdx + 1);
+  return domain.includes(".") && !domain.endsWith(".");
+}
+
 function validateContactInput(name, email, message) {
   const errors = [];
   if (!name    || typeof name    !== "string" || name.trim().length    < 2)  errors.push("Name must be at least 2 characters.");
-  if (!email   || typeof email   !== "string" || email.trim().length > 254 || !email.trim().includes("@") || email.trim().indexOf("@") === 0 || email.trim().endsWith("@")) errors.push("A valid email address is required.");
+  if (!isValidEmail(email))                                                  errors.push("A valid email address is required.");
   if (!message || typeof message !== "string" || message.trim().length < 10) errors.push("Message must be at least 10 characters.");
   return errors;
 }
@@ -124,10 +135,8 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
 /* ── Health check ───────────────────────────────────────────── */
 app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
 
-/* ── Catch-all: serve index.html for client-side routing ────── */
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
+/* express.static above handles serving index.html for GET /
+   No catch-all needed for this single-page site. */
 
 /* ── Start ──────────────────────────────────────────────────── */
 app.listen(PORT, () => {

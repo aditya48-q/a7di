@@ -98,7 +98,7 @@ Visit **http://localhost:3000** — the contact form is now fully functional.
 | 3D        | Three.js r134 (CDN)                 |
 | Animations| AOS 2.3.4 (CDN), CSS keyframes      |
 | Backend   | Node.js ≥ 18, Express 4             |
-| Email     | Nodemailer 6                        |
+| Email     | Nodemailer 8                        |
 
 ---
 
