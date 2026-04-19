@@ -54,6 +54,7 @@
 
     <main id="main">
       <section id="hero" class="section hero">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
         <div class="shell hero-shell">
           <div class="hero-grid">
             <div class="hero-copy" data-aos="fade-up" data-aos-delay="0">
@@ -84,7 +85,7 @@
             </div>
 
             <div class="hero-visual" data-aos="fade-left" data-aos-delay="150">
-              <div class="profile-card">
+              <div class="profile-card tilt-card">
                 <div class="profile">
                   <img
                     class="profile-pic"
@@ -135,7 +136,7 @@
           </div>
 
           <div class="grid-2">
-            <div class="about-copy" data-aos="fade-right" data-aos-delay="80">
+            <div class="about-copy tilt-card" data-aos="fade-right" data-aos-delay="80">
               <h3>What I bring</h3>
               <p>
                 I design and build responsive experiences, convert ideas into polished
@@ -149,7 +150,7 @@
               </ul>
             </div>
 
-            <div class="about-highlight" data-aos="fade-left" data-aos-delay="140">
+            <div class="about-highlight tilt-card" data-aos="fade-left" data-aos-delay="140">
               <h3>Focus Areas</h3>
               <div class="pill-row">
                 <span class="pill">Web Development</span>
@@ -178,7 +179,7 @@
 
           <div class="projects-wrap" data-aos="fade-up" data-aos-delay="100">
             <div class="projects-track">
-              <article class="project-card">
+              <article class="project-card tilt-card">
                 <div class="project-top">
                   <p class="project-label">Featured</p>
                   <h3>ProtoLearn</h3>
@@ -202,7 +203,7 @@
                 </div>
               </article>
 
-              <article class="project-card">
+              <article class="project-card tilt-card">
                 <div class="project-top">
                   <p class="project-label">Live</p>
                   <h3>Codex Project</h3>
@@ -235,7 +236,7 @@
                 </div>
               </article>
 
-              <article class="project-card">
+              <article class="project-card tilt-card">
                 <div class="project-top">
                   <p class="project-label">Concept</p>
                   <h3>Landing Page Project</h3>
@@ -269,7 +270,7 @@
           </div>
 
           <div class="skills-grid" data-aos="fade-up" data-aos-delay="80">
-            <div class="skill-card">
+            <div class="skill-card tilt-card">
               <h3>Programming</h3>
               <div class="skill-bar">
                 <span>C</span>
@@ -281,7 +282,7 @@
               </div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card tilt-card">
               <h3>Web</h3>
               <div class="skill-bar">
                 <span>HTML</span>
@@ -293,7 +294,7 @@
               </div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card tilt-card">
               <h3>Concepts</h3>
               <div class="skill-bar">
                 <span>OOPs</span>
@@ -305,7 +306,7 @@
               </div>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card tilt-card">
               <h3>Tools</h3>
               <div class="skill-bar">
                 <span>AI Tools</span>
@@ -328,7 +329,7 @@
           </div>
 
           <div class="contact-grid">
-            <div class="contact-card" data-aos="fade-right" data-aos-delay="80">
+            <div class="contact-card tilt-card" data-aos="fade-right" data-aos-delay="80">
               <h3>Reach me</h3>
               <p class="muted">Email</p>
               <p class="contact-highlight">adg88175@gmail.com</p>
@@ -346,7 +347,7 @@
               </div>
             </div>
 
-            <form class="contact-form" data-aos="fade-left" data-aos-delay="140">
+            <form class="contact-form tilt-card" data-aos="fade-left" data-aos-delay="140">
               <h3>Send a message</h3>
               <label>
                 <span>Name</span>
@@ -377,6 +378,7 @@
     </main>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="three.min.js"></script>
     <script>
       const navToggle = document.querySelector(".nav-toggle");
       const navLinks = document.querySelectorAll(".nav-links a");
@@ -400,5 +402,6 @@
         offset: 120,
       });
     </script>
+    <script src="effects.js"></script>
   </body>
 </html>
